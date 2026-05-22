@@ -8,14 +8,14 @@ app_license = "mit"
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = ["frappe/erpnext"]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
 # 	{
 # 		"name": "quotation_costs",
 # 		"logo": "/assets/quotation_costs/logo.png",
-# 		"title": "ERPNext Quotation Costs",
+# 		"title": "ERPNext Quotation Costs",dreu
 # 		"route": "/quotation_costs",
 # 		"has_permission": "quotation_costs.api.permission.has_app_permission"
 # 	}
