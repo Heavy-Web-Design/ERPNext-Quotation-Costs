@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-22 17:21:51.426400",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "description",
+  "supplier",
+  "supplier_name",
+  "qty",
+  "profit_percent",
+  "profit_amount",
+  "rate",
+  "amount",
+  "customer_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Select",
+   "label": "item"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "description"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "label": "supplier_name"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Int",
+   "label": "qty"
+  },
+  {
+   "fieldname": "profit_percent",
+   "fieldtype": "Float",
+   "label": "profit_percent"
+  },
+  {
+   "fieldname": "profit_amount",
+   "fieldtype": "Currency",
+   "label": "profit_amount"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "rate"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "amount"
+  },
+  {
+   "fieldname": "customer_rate",
+   "fieldtype": "Currency",
+   "label": "customer_rate"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-22 17:21:51.426400",
+ "modified_by": "Administrator",
+ "module": "ERPNext Quotation Costs",
+ "name": "Quotation Costs Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
