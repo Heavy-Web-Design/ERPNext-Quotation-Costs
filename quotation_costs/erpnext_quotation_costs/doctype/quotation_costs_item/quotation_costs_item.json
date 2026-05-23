@@ -6,75 +6,137 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "item",
-  "description",
   "supplier",
+  "column_break_hxju",
   "supplier_name",
+  "section_break_ljeb",
+  "item",
+  "item_title",
+  "column_break_nnin",
+  "description",
+  "section_break_dhgz",
   "qty",
+  "rate",
+  "column_break_zlbc",
+  "purchase_taxes_and_charges_template",
+  "amount",
+  "column_break_edrv",
   "profit_percent",
   "profit_amount",
-  "rate",
-  "amount",
+  "column_break_qhej",
   "customer_rate"
  ],
  "fields": [
   {
+   "columns": 2,
+   "description": "Select to link this cost to a specific Quotation item",
    "fieldname": "item",
-   "fieldtype": "Select",
-   "label": "item"
+   "fieldtype": "Autocomplete",
+   "label": "Item"
   },
   {
+   "columns": 5,
    "fieldname": "description",
-   "fieldtype": "Data",
-   "label": "description"
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description"
   },
   {
    "fieldname": "supplier",
    "fieldtype": "Link",
-   "label": "supplier",
+   "label": "Supplier",
    "options": "Supplier"
   },
   {
+   "fetch_from": "supplier.supplier_name",
    "fieldname": "supplier_name",
    "fieldtype": "Data",
-   "label": "supplier_name"
+   "in_list_view": 1,
+   "label": "Supplier Name"
   },
   {
+   "default": "1",
    "fieldname": "qty",
    "fieldtype": "Int",
-   "label": "qty"
+   "label": "Qty"
   },
   {
+   "columns": 1,
    "fieldname": "profit_percent",
    "fieldtype": "Float",
-   "label": "profit_percent"
+   "in_list_view": 1,
+   "label": "Profit Percent (%)"
   },
   {
+   "columns": 1,
    "fieldname": "profit_amount",
    "fieldtype": "Currency",
-   "label": "profit_amount"
+   "in_list_view": 1,
+   "label": "Profit Amount"
   },
   {
+   "columns": 1,
    "fieldname": "rate",
    "fieldtype": "Currency",
-   "label": "rate"
+   "in_list_view": 1,
+   "label": "Rate"
   },
   {
    "fieldname": "amount",
    "fieldtype": "Currency",
-   "label": "amount"
+   "label": "Amount"
   },
   {
    "fieldname": "customer_rate",
    "fieldtype": "Currency",
-   "label": "customer_rate"
+   "label": "Customer Rate"
+  },
+  {
+   "fieldname": "column_break_hxju",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ljeb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_nnin",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_dhgz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_zlbc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_edrv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "purchase_taxes_and_charges_template",
+   "fieldtype": "Link",
+   "label": "Purchase Taxes and Charges Template",
+   "options": "Purchase Taxes and Charges Template"
+  },
+  {
+   "fieldname": "column_break_qhej",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_title",
+   "fieldtype": "Data",
+   "label": "Item Title",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-05-22 17:21:51.426400",
+ "modified": "2026-05-22 22:08:55.724358",
  "modified_by": "Administrator",
  "module": "ERPNext Quotation Costs",
  "name": "Quotation Costs Item",
