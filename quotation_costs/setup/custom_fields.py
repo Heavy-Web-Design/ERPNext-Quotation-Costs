@@ -17,6 +17,7 @@ def add_custom_fields():
             dict(fieldname='quote_costs_items', label='', fieldtype='Table', options='Quotation Costs Item', insert_after='section_quote_costs_items'),
             dict(fieldname='section_quote_costs_totals', label='', fieldtype='Section Break', insert_after='quote_costs_items'),
             dict(fieldname='column_break_qc1', label='', fieldtype='Column Break', insert_after='section_quote_costs_totals'),
+            dict(fieldname='get_items', label='Get Items', fieldtype='Button', insert_after='column_break_qc1'),
             dict(fieldname='column_break_qc2', label='', fieldtype='Column Break', insert_after='column_break_qc1'),
             dict(fieldname='column_break_qc3', label='', fieldtype='Column Break', insert_after='column_break_qc2'),
             dict(fieldname='total_average_profit_percent', label='Total Average Profit (%)', fieldtype='Float', insert_after='column_break_qc3'),
