@@ -32,18 +32,21 @@
    "description": "Select to link this cost to a specific Quotation item",
    "fieldname": "item",
    "fieldtype": "Autocomplete",
+   "in_list_view": 1,
    "label": "Item"
   },
   {
-   "columns": 5,
+   "columns": 3,
    "fieldname": "description",
    "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "Description"
   },
   {
+   "columns": 2,
    "fieldname": "supplier",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Supplier",
    "options": "Supplier"
   },
@@ -51,7 +54,7 @@
    "fetch_from": "supplier.supplier_name",
    "fieldname": "supplier_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
+   "hidden": 1,
    "label": "Supplier Name"
   },
   {
@@ -136,7 +139,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-05-22 22:08:55.724358",
+ "modified": "2026-05-22 22:29:24.576575",
  "modified_by": "Administrator",
  "module": "ERPNext Quotation Costs",
  "name": "Quotation Costs Item",

@@ -13,7 +13,7 @@ def add_custom_fields():
     # Add custom fields
     custom_fields = {
         "Quotation": [
-            dict(fieldname='section_quote_costs_items', label='Quotation Costs', fieldtype='Section Break', insert_after='net_total', hide_border=True, collapsible=True),
+            dict(fieldname='section_quote_costs_items', label='Quotation Costs', fieldtype='Section Break', insert_after='net_total', hide_border=True),
             dict(fieldname='quote_costs_items', label='', fieldtype='Table', options='Quotation Costs Item', insert_after='section_quote_costs_items'),
             dict(fieldname='section_quote_costs_totals', label='', fieldtype='Section Break', insert_after='quote_costs_items'),
             dict(fieldname='column_break_qc1', label='', fieldtype='Column Break', insert_after='section_quote_costs_totals'),
