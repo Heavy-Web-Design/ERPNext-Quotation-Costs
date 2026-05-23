@@ -85,6 +85,12 @@ required_apps = ["frappe/erpnext"]
 # before_install = "quotation_costs.install.before_install"
 # after_install = "quotation_costs.install.after_install"
 
+# Migration
+# ------------
+after_migrate = [
+    "quotation_costs.setup.custom_fields.add_custom_fields",
+]
+
 # Uninstallation
 # ------------
 
