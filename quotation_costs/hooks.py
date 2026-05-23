@@ -3,6 +3,7 @@ app_title = "ERPNext Quotation Costs"
 app_publisher = "Heavy Web Design"
 app_description = "Table to register estimated costs to selling Quotation"
 app_email = "juanpablo@heavywebdesign.com"
+app_version = "0.1.0"
 app_license = "mit"
 
 # Apps
@@ -43,7 +44,9 @@ required_apps = ["frappe/erpnext"]
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Quotation" : "public/js/quotation.js"
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
