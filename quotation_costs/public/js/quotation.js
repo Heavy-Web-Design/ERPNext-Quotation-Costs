@@ -34,6 +34,7 @@ frappe.ui.form.on('Quotation', {
                 const child = frm.add_child('quote_costs_items');
                 const cdt = child.doctype;
                 const cdn = child.name;
+                console.log(cdt, cdn);
                 frappe.model.set_value(cdt, cdn, "item", r.name)
                 frappe.model.set_value(cdt, cdn, "title", `${r.item_code}: ${r.item_name}`)
                 frm.refresh_field("quote_costs_items");
@@ -41,6 +42,43 @@ frappe.ui.form.on('Quotation', {
         }
         
     },
+
+    update_items(frm) {
+
+        // Get checked rows
+        const checked = frm.doc.quote_costs_items.filter(r => r.__checked == 1);
+        if(checked.length == 0) {
+            frappe.msgprint(__("Please make a selection on Costs table"), "Error")
+        } else {
+            
+            // Build an array of items and their corresponding customer rates, summing up the rates for duplicate items
+            var items_and_rates = [];
+            checked.forEach((r, k) => {
+
+                // Check if item already exists in the array
+                let existing_item = items_and_rates.find(i => i.item === r.item);
+
+                if (existing_item) {
+                    // If exists, add the amount
+                    existing_item.amount += r.customer_rate || 0;
+                } else {
+                    // If not exists, add new item to array
+                    items_and_rates.push({ item: r.item, amount: r.customer_rate || 0 });
+                }
+
+            })
+
+            // Update the main items table with the new rates
+            items_and_rates.forEach(j => {
+                frappe.model.set_value("Quotation Item", j.item, 'rate', j.amount);
+            });
+
+            frm.refresh_field("items");
+
+            
+        }
+
+    }
 
 });
 
