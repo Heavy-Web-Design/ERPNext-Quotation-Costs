@@ -10,7 +10,7 @@ frappe.ui.form.on('Quotation', {
                     globalThis.default_purchase_taxes_and_charges_template = "El Salvador Tax - ED";
                     
                     frm.doc.quote_costs_items.forEach(function(row) {
-                        set_purchase_taxes_and_charges_template(frm, row.doctype, row.name);
+                        set__purchase_taxes_and_charges_template(frm, row.doctype, row.name);
                     });
                     
                     // Refresh the child table field in the UI
@@ -48,11 +48,11 @@ frappe.ui.form.on('Quotation', {
 frappe.ui.form.on('Quotation Costs Item', {
 
     quote_costs_items_add(frm, cdt, cdn) {
-        set_purchase_taxes_and_charges_template(frm, cdt, cdn);
+        set__purchase_taxes_and_charges_template(frm, cdt, cdn);
     },
 
     form_render(frm, cdt, cdn) {
-        set_purchase_taxes_and_charges_template(frm, cdt, cdn);
+        set__purchase_taxes_and_charges_template(frm, cdt, cdn);
     },
 
     qty(frm, cdt, cdn) {
@@ -87,7 +87,7 @@ const calculate__amount = (frm, cdt, cdn) => {
  * @param {*} cdt 
  * @param {*} cdn 
  */
-const set_purchase_taxes_and_charges_template = (frm, cdt, cdn) => {
+const set__purchase_taxes_and_charges_template = (frm, cdt, cdn) => {
     
     var d = locals[cdt][cdn];
     
