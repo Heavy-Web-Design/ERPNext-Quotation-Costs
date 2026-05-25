@@ -192,7 +192,7 @@ const set__purchase_taxes_and_charges_template = (frm, cdt, cdn) => {
     var d = locals[cdt][cdn];
     
     // Check if the field is empty to prevent overwriting existing data
-    if (!d.purchase_taxes_and_charges_template) {
+    if (d.purchase_taxes_and_charges_template == undefined || d.purchase_taxes_and_charges_template == "") {
         frappe.model.set_value(cdt, cdn, 'purchase_taxes_and_charges_template', default_purchase_taxes_and_charges_template);
     }
 
