@@ -3,7 +3,7 @@ app_title = "ERPNext Quotation Costs"
 app_publisher = "Heavy Web Design"
 app_description = "Table to register estimated costs to selling Quotation"
 app_email = "juanpablo@heavywebdesign.com"
-app_version = "0.1.0"
+app_version = "1.0.0-rc1"
 app_license = "mit"
 
 # Apps
