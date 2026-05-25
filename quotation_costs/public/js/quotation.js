@@ -97,13 +97,16 @@ frappe.ui.form.on('Quotation Costs Item', {
     qty(frm, cdt, cdn) {
         calculate__amount(frm, cdt, cdn);
         calculate__profit_amount__customer_rate(frm, cdt, cdn);
+        calculateTotals__quote_costs_items(frm, cdt, cdn);
     }, 
     rate(frm, cdt, cdn) {
         calculate__amount(frm, cdt, cdn);
         calculate__profit_amount__customer_rate(frm, cdt, cdn);
+        calculateTotals__quote_costs_items(frm, cdt, cdn);
     },
     profit_percent(frm, cdt, cdn) {
         calculate__profit_amount__customer_rate(frm, cdt, cdn);
+        calculateTotals__quote_costs_items(frm, cdt, cdn);
     },
     fixed_profit(frm, cdt, cdn) {
         const d = locals[cdt][cdn];
@@ -117,6 +120,7 @@ frappe.ui.form.on('Quotation Costs Item', {
     },
     profit_amount(frm, cdt, cdn) {
         calculate__profit_percent__customer_rate(frm, cdt, cdn);
+        calculateTotals__quote_costs_items(frm, cdt, cdn);
     }
 
     
@@ -158,6 +162,24 @@ const calculate__amount = (frm, cdt, cdn) => {
     });
 }
 
+
+const calculateTotals__quote_costs_items = (frm, cdt, cdn) => {
+    
+    var total_profit_amount = 0;
+    var total_profit_percent = 0;
+
+    frm.doc.quote_costs_items.forEach(d => {
+        total_profit_amount += d.profit_amount;
+        total_profit_percent += d.profit_percent;
+    });
+
+    var total_average_profit_percent = total_profit_percent / frm.doc.quote_costs_items.length;
+    frm.set_value({
+        'total_profit_amount': total_profit_amount,
+        'total_average_profit_percent': total_average_profit_percent,
+    });
+
+}
 
 /**
  * Sets the purchase taxes and charges template for a given row in the quote_costs_items table if it's not already set.
