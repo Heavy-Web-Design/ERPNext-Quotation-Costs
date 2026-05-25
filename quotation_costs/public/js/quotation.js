@@ -37,6 +37,7 @@ frappe.ui.form.on('Quotation', {
                 console.log(cdt, cdn);
                 frappe.model.set_value(cdt, cdn, "item", r.name)
                 frappe.model.set_value(cdt, cdn, "title", `${r.item_code}: ${r.item_name}`)
+                set__purchase_taxes_and_charges_template(frm, cdt, cdn);
                 frm.refresh_field("quote_costs_items");
             })
         }
