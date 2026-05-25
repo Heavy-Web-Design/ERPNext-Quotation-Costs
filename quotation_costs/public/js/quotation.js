@@ -55,7 +55,7 @@ frappe.ui.form.on('Quotation Costs Item', {
         set__purchase_taxes_and_charges_template(frm, cdt, cdn);
     },
 
-    
+
     qty(frm, cdt, cdn) {
         calculate__amount(frm, cdt, cdn);
         calculate__profit_amount__customer_rate(frm, cdt, cdn);
@@ -66,17 +66,43 @@ frappe.ui.form.on('Quotation Costs Item', {
     },
     profit_percent(frm, cdt, cdn) {
         calculate__profit_amount__customer_rate(frm, cdt, cdn);
+    },
+    fixed_profit(frm, cdt, cdn) {
+        const d = locals[cdt][cdn];
+        if(d.fixed_profit) {
+            frm.set_df_property('quote_costs_items', 'read_only', 1, cdt, 'profit_percent', cdn);
+            frm.set_df_property('quote_costs_items', 'read_only', 0, cdt, 'profit_amount', cdn);
+        } else {
+            frm.set_df_property('quote_costs_items', 'read_only', 0, cdt, 'profit_percent', cdn);
+            frm.set_df_property('quote_costs_items', 'read_only', 1, cdt, 'profit_amount', cdn);
+        }
+    },
+    profit_amount(frm, cdt, cdn) {
+        calculate__profit_percent__customer_rate(frm, cdt, cdn);
     }
 
     
 });
 
 
+const calculate__profit_percent__customer_rate = (frm, cdt, cdn) => {
+    const d = locals[cdt][cdn];
+    if(d.fixed_profit) {
+        // Calculate profit_percent from profit_amount
+        const cost_amount = d.rate * d.qty;
+        const profit_percent = cost_amount > 0 ? (d.profit_amount / cost_amount) * 100 : 0;
+        frappe.model.set_value(cdt, cdn, 'profit_percent', profit_percent);
+        frappe.model.set_value(cdt, cdn, 'customer_rate', d.rate * (1 + profit_percent / 100));
+    }
+}
+
 const calculate__profit_amount__customer_rate = (frm, cdt, cdn) => {
     const d = locals[cdt][cdn];
-    const profit_amount = d.rate * d.qty * (d.profit_percent / 100);
-    frappe.model.set_value(cdt, cdn, 'profit_amount', profit_amount);
-    frappe.model.set_value(cdt, cdn, 'customer_rate', d.rate + profit_amount);
+    if(!d.fixed_profit) {
+        const profit_amount = d.rate * d.qty * (d.profit_percent / 100);
+        frappe.model.set_value(cdt, cdn, 'profit_amount', profit_amount);
+        frappe.model.set_value(cdt, cdn, 'customer_rate', d.rate + profit_amount);
+    }
 }
 
 const calculate__amount = (frm, cdt, cdn) => {

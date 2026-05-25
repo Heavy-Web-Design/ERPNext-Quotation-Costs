@@ -22,6 +22,7 @@
   "amount",
   "column_break_edrv",
   "profit_percent",
+  "fixed_profit",
   "profit_amount",
   "column_break_qhej",
   "customer_rate"
@@ -139,13 +140,19 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Title"
+  },
+  {
+   "default": "0",
+   "fieldname": "fixed_profit",
+   "fieldtype": "Check",
+   "label": "Fixed Profit"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-05-25 11:08:56.898753",
+ "modified": "2026-05-25 11:11:19.412752",
  "modified_by": "Administrator",
  "module": "ERPNext Quotation Costs",
  "name": "Quotation Costs Item",
