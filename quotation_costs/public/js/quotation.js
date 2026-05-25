@@ -7,7 +7,7 @@ frappe.ui.form.on('Quotation', {
 
                 if (r && r.name) {
                     
-                    globalThis.default_purchase_taxes_and_charges_template = "El Salvador Tax - ED";
+                    globalThis.default_purchase_taxes_and_charges_template = r.name;
                     
                     frm.doc.quote_costs_items.forEach(function(row) {
                         set__purchase_taxes_and_charges_template(frm, row.doctype, row.name);
