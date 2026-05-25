@@ -55,15 +55,29 @@ frappe.ui.form.on('Quotation Costs Item', {
         set__purchase_taxes_and_charges_template(frm, cdt, cdn);
     },
 
+    
     qty(frm, cdt, cdn) {
         calculate__amount(frm, cdt, cdn);
+        calculate__profit_amount__customer_rate(frm, cdt, cdn);
     }, 
     rate(frm, cdt, cdn) {
         calculate__amount(frm, cdt, cdn);
+        calculate__profit_amount__customer_rate(frm, cdt, cdn);
+    },
+    profit_percent(frm, cdt, cdn) {
+        calculate__profit_amount__customer_rate(frm, cdt, cdn);
     }
+
     
 });
 
+
+const calculate__profit_amount__customer_rate = (frm, cdt, cdn) => {
+    const d = locals[cdt][cdn];
+    const profit_amount = d.rate * d.qty * (d.profit_percent / 100);
+    frappe.model.set_value(cdt, cdn, 'profit_amount', profit_amount);
+    frappe.model.set_value(cdt, cdn, 'customer_rate', d.rate + profit_amount);
+}
 
 const calculate__amount = (frm, cdt, cdn) => {
 
