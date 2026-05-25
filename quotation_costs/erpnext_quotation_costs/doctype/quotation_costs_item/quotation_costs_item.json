@@ -57,6 +57,7 @@
   },
   {
    "columns": 1,
+   "default": "0",
    "fieldname": "profit_percent",
    "fieldtype": "Float",
    "in_list_view": 1,
@@ -64,6 +65,7 @@
   },
   {
    "columns": 1,
+   "default": "0",
    "fieldname": "profit_amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
@@ -140,7 +142,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-05-23 09:27:03.006866",
+ "modified": "2026-05-25 10:20:05.435589",
  "modified_by": "Administrator",
  "module": "ERPNext Quotation Costs",
  "name": "Quotation Costs Item",

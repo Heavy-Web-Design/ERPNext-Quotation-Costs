@@ -53,9 +53,32 @@ frappe.ui.form.on('Quotation Costs Item', {
 
     form_render(frm, cdt, cdn) {
         set_purchase_taxes_and_charges_template(frm, cdt, cdn);
+    },
+
+    qty(frm, cdt, cdn) {
+        calculate__amount(frm, cdt, cdn);
+    }, 
+    rate(frm, cdt, cdn) {
+        calculate__amount(frm, cdt, cdn);
     }
     
 });
+
+
+const calculate__amount = (frm, cdt, cdn) => {
+
+    const d = locals[cdt][cdn];
+
+    // Set amount based on rate, qty and taxes
+    frappe.call('quotation_costs.utils.utils.calculate_single_value_tax', {
+        amount: d.rate * d.qty,
+        template_name: d.purchase_taxes_and_charges_template
+    }).then((r) => {
+        if (r.message) {
+            frappe.model.set_value(cdt, cdn, 'amount', r.message.grand_total);
+        }
+    });
+}
 
 
 /**
