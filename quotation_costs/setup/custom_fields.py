@@ -21,9 +21,9 @@ def add_custom_fields():
             dict(fieldname='column_break_qc2', label='', fieldtype='Column Break', insert_after='get_items'),
             dict(fieldname='update_items', label='Update Items', fieldtype='Button', insert_after='column_break_qc2'),
             dict(fieldname='column_break_qc3', label='', fieldtype='Column Break', insert_after='update_items'),
-            dict(fieldname='total_average_profit_percent', label='Total Average Profit (%)', fieldtype='Float', insert_after='column_break_qc3'),
+            dict(fieldname='total_average_profit_percent', label='Total Average Profit (%)', fieldtype='Float', insert_after='column_break_qc3', read_only=1),
             dict(fieldname='column_break_qc4', label='', fieldtype='Column Break', insert_after='total_average_profit_percent'),
-            dict(fieldname='total_profit_amount', label='Total Profit', fieldtype='Currency', insert_after='column_break_qc4'),
+            dict(fieldname='total_profit_amount', label='Total Profit', fieldtype='Currency', insert_after='column_break_qc4', read_only=1),
         ]
     }
 
