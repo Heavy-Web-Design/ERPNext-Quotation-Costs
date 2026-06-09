@@ -78,7 +78,7 @@
    "fieldname": "rate",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Rate"
+   "label": "Cost"
   },
   {
    "fieldname": "amount",
@@ -152,7 +152,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-05-25 11:11:19.412752",
+ "modified": "2026-06-09 09:58:30.971670",
  "modified_by": "Administrator",
  "module": "ERPNext Quotation Costs",
  "name": "Quotation Costs Item",
